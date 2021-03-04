@@ -12,7 +12,7 @@ const salaryElSelector = {
 };
 const detailsElSelector = {
   jobOfferPage: '.right-rail',
-  companyPage: '.org-grid__right-rail-margin-enforcer',
+  companyPage: '.scaffold-layout__aside',
 };
 
 export class LinkedInInjector extends Base {
