@@ -20,6 +20,21 @@ export class Base {
     this.salary = null;
   }
 
+  shouldInjectSalary() {
+    if (
+      !this.company
+      || !this.company.salary
+      || !this.company.salary
+      || !this.company.salary.salaryCompanyDetails
+      || !this.company.salary.salaryCompanyDetails.salaryMin
+      || !this.company.salary.salaryCompanyDetails.salaryMax
+      || !this.company.salary.salaryCompanyDetails.salaryMedian
+    ) {
+      return false;
+    }
+    return true;
+  }
+
   createList(elements) {
     const list = document.createElement('ul');
     list.style.padding = 0;
@@ -225,11 +240,7 @@ export class Base {
   }
 
   getSalaryRange() {
-    if (
-      !this.company.salary.salaryCompanyDetails.salaryMin && 
-      !this.company.salary.salaryCompanyDetails.salaryMax &&
-      !this.company.salary.salaryCompanyDetails.salaryMedian
-    ) {
+    if (!this.shouldInjectSalary()) {
       return null;
     }
 
