@@ -33,7 +33,7 @@ export class LinkedInInjector extends Base {
     if (document.body.classList.contains('boot-complete')) {
       if (
         !this.detailsInjected
-        && !this.salaryInjected
+        && (this.shouldInjectSalary() && !this.salaryInjected)
         && !this.ratingInjected
       ) {
         this.cleanup();
@@ -45,7 +45,10 @@ export class LinkedInInjector extends Base {
   observeSearch() {
     const el = document.querySelector('.jobs-details-top-card__company-url');
     if (!this.injecting && el && this.isCompanyPage(el.pathname)) {
-      if (!this.salaryInjected || !this.ratingInjected) {
+      if (
+        (this.shouldInjectSalary() && !this.salaryInjected)
+        || !this.ratingInjected
+      ) {
         this.cleanup();
         this.inject();
       }
@@ -54,7 +57,7 @@ export class LinkedInInjector extends Base {
 
   observeSalaryContainer() {
     const el = document.querySelector('.jobs-top-card__flavors');
-    if (!this.salaryInjected && el) {
+    if (this.shouldInjectSalary() && !this.salaryInjected && el) {
       this.cleanup();
       this.inject();
     }
@@ -198,7 +201,7 @@ export class LinkedInInjector extends Base {
   }
 
   addSalaryAverageToDOM() {
-    if (this.company.salary) {
+    if (this.shouldInjectSalary()) {
       const {
         container,
         title,
