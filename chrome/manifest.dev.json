@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Teamlyzer Dev",
   "manifest_version": 2,
   "description": "Adiciona estimativas salariais aos anúncios de emprego de tecnologia em Portugal do LinkedIn, ITJobs, e Landing.jobs.",
@@ -19,5 +19,5 @@
     "page": "background.html"
   },
   "permissions": [ "contextMenus", "storage", "http://localhost:3000/*", "*://*.teamlyzer.com/*", "*://*.itjobs.pt/*", "*://*.linkedin.com/*", "*://landing.jobs/*", "*://*.gstatic.com/*"],
-  "content_security_policy": "default-src 'self'; script-src 'self' http://localhost:3000 https://localhost:3000 'unsafe-eval'; connect-src http://localhost:3000 https://localhost:3000 https://pt.teamlyzer.com; style-src * 'unsafe-inline' 'self' blob:; img-src https://pt.teamlyzer.com 'self' data:; font-src 'self' https://fonts.gstatic.com"
+  "content_security_policy": "default-src 'self'; script-src 'self' http://localhost:3000 https://localhost:3000 https://www.google-analytics.com 'unsafe-eval'; connect-src http://localhost:3000 https://localhost:3000 https://pt.teamlyzer.com; style-src * 'unsafe-inline' 'self' blob:; img-src https://pt.teamlyzer.com 'self' data:; font-src 'self' https://fonts.gstatic.com; object-src 'self'"
 }
